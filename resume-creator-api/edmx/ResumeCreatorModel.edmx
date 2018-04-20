@@ -1,0 +1,725 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ResumeCreatorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CertificateDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="Institute" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="FromYear" Type="int" Nullable="false" />
+          <Property Name="ToYear" Type="int" />
+          <Property Name="HasNoExpiry" Type="bit" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EducationDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Specialization" Type="nvarchar" MaxLength="512" />
+          <Property Name="University" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="FromMonth" Type="int" Nullable="false" />
+          <Property Name="FromYear" Type="int" Nullable="false" />
+          <Property Name="ToMonth" Type="int" />
+          <Property Name="ToYear" Type="int" />
+          <Property Name="IsCurrent" Type="bit" Nullable="false" />
+          <Property Name="Percentage" Type="float" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployerHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginID" Type="int" Nullable="false" />
+          <Property Name="EmployerName" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="IsCurrent" Type="bit" Nullable="false" />
+          <Property Name="FromMonth" Type="int" Nullable="false" />
+          <Property Name="FromYear" Type="int" Nullable="false" />
+          <Property Name="ToMonth" Type="int" />
+          <Property Name="ToYear" Type="int" />
+          <Property Name="Designation" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="TeamSize" Type="int" Nullable="false" />
+          <Property Name="JobProfile" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="NoticePeriod" Type="int" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoginProfile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MasterDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DisplayText" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="MasterType" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProjectDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginID" Type="int" Nullable="false" />
+          <Property Name="Client" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="ProjectTitle" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="FromMonth" Type="int" Nullable="false" />
+          <Property Name="FromYear" Type="int" Nullable="false" />
+          <Property Name="ToMonth" Type="int" />
+          <Property Name="ToYear" Type="int" />
+          <Property Name="IsCurrent" Type="bit" Nullable="false" />
+          <Property Name="ProjectLocation" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsOnsite" Type="bit" Nullable="false" />
+          <Property Name="EmploymentType" Type="int" Nullable="false" />
+          <Property Name="ProjectDetails" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Role" Type="int" Nullable="false" />
+          <Property Name="RoleDescription" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="TeamSize" Type="int" Nullable="false" />
+          <Property Name="SkillsUsed" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SummarySkills">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginID" Type="int" Nullable="false" />
+          <Property Name="DisplayText" Type="nvarchar" MaxLength="2048" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TechnicalSkills">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Version" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastUsed" Type="int" Nullable="false" />
+          <Property Name="ExperienceYear" Type="int" Nullable="false" />
+          <Property Name="ExperienceMonth" Type="int" Nullable="false" />
+          <Property Name="ProfileID" Type="int" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginID" Type="int" Nullable="false" />
+          <Property Name="Objective" Type="nvarchar" MaxLength="4000" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Address2" Type="nvarchar" MaxLength="256" />
+          <Property Name="City" Type="nvarchar" MaxLength="528" Nullable="false" />
+          <Property Name="State" Type="int" Nullable="false" />
+          <Property Name="Country" Type="int" Nullable="false" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CertificateDetails_LoginProfile">
+          <End Role="LoginProfile" Type="Self.LoginProfile" Multiplicity="1" />
+          <End Role="CertificateDetails" Type="Self.CertificateDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CertificateDetails">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EducationDetails_LoginProfile">
+          <End Role="LoginProfile" Type="Self.LoginProfile" Multiplicity="1" />
+          <End Role="EducationDetails" Type="Self.EducationDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EducationDetails">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployerHistory_LoginProfile">
+          <End Role="LoginProfile" Type="Self.LoginProfile" Multiplicity="1" />
+          <End Role="EmployerHistory" Type="Self.EmployerHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployerHistory">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfileSkills_LoginProfile">
+          <End Role="LoginProfile" Type="Self.LoginProfile" Multiplicity="1" />
+          <End Role="TechnicalSkills" Type="Self.TechnicalSkills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TechnicalSkills">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectDetails_LoginProfile">
+          <End Role="LoginProfile" Type="Self.LoginProfile" Multiplicity="1" />
+          <End Role="ProjectDetails" Type="Self.ProjectDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProjectDetails">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SummarySkills_LoginProfile">
+          <End Role="LoginProfile" Type="Self.LoginProfile" Multiplicity="1" />
+          <End Role="SummarySkills" Type="Self.SummarySkills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SummarySkills">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_LoginProfile">
+          <End Role="LoginProfile" Type="Self.LoginProfile" Multiplicity="1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ResumeCreatorModelStoreContainer">
+          <EntitySet Name="CertificateDetails" EntityType="Self.CertificateDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EducationDetails" EntityType="Self.EducationDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployerHistory" EntityType="Self.EmployerHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginProfile" EntityType="Self.LoginProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MasterDetails" EntityType="Self.MasterDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectDetails" EntityType="Self.ProjectDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SummarySkills" EntityType="Self.SummarySkills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TechnicalSkills" EntityType="Self.TechnicalSkills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CertificateDetails_LoginProfile" Association="Self.FK_CertificateDetails_LoginProfile">
+            <End Role="LoginProfile" EntitySet="LoginProfile" />
+            <End Role="CertificateDetails" EntitySet="CertificateDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EducationDetails_LoginProfile" Association="Self.FK_EducationDetails_LoginProfile">
+            <End Role="LoginProfile" EntitySet="LoginProfile" />
+            <End Role="EducationDetails" EntitySet="EducationDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployerHistory_LoginProfile" Association="Self.FK_EmployerHistory_LoginProfile">
+            <End Role="LoginProfile" EntitySet="LoginProfile" />
+            <End Role="EmployerHistory" EntitySet="EmployerHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfileSkills_LoginProfile" Association="Self.FK_ProfileSkills_LoginProfile">
+            <End Role="LoginProfile" EntitySet="LoginProfile" />
+            <End Role="TechnicalSkills" EntitySet="TechnicalSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectDetails_LoginProfile" Association="Self.FK_ProjectDetails_LoginProfile">
+            <End Role="LoginProfile" EntitySet="LoginProfile" />
+            <End Role="ProjectDetails" EntitySet="ProjectDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SummarySkills_LoginProfile" Association="Self.FK_SummarySkills_LoginProfile">
+            <End Role="LoginProfile" EntitySet="LoginProfile" />
+            <End Role="SummarySkills" EntitySet="SummarySkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_LoginProfile" Association="Self.FK_UserProfile_LoginProfile">
+            <End Role="LoginProfile" EntitySet="LoginProfile" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ResumeCreatorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CertificateDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Institute" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FromYear" Type="Int32" Nullable="false" />
+          <Property Name="ToYear" Type="Int32" />
+          <Property Name="HasNoExpiry" Type="Boolean" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="LoginProfile" Relationship="Self.FK_CertificateDetails_LoginProfile" FromRole="CertificateDetails" ToRole="LoginProfile" />
+        </EntityType>
+        <EntityType Name="EducationDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Specialization" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="University" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FromMonth" Type="Int32" Nullable="false" />
+          <Property Name="FromYear" Type="Int32" Nullable="false" />
+          <Property Name="ToMonth" Type="Int32" />
+          <Property Name="ToYear" Type="Int32" />
+          <Property Name="IsCurrent" Type="Boolean" Nullable="false" />
+          <Property Name="Percentage" Type="Double" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="LoginProfile" Relationship="Self.FK_EducationDetails_LoginProfile" FromRole="EducationDetails" ToRole="LoginProfile" />
+        </EntityType>
+        <EntityType Name="EmployerHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginID" Type="Int32" Nullable="false" />
+          <Property Name="EmployerName" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsCurrent" Type="Boolean" Nullable="false" />
+          <Property Name="FromMonth" Type="Int32" Nullable="false" />
+          <Property Name="FromYear" Type="Int32" Nullable="false" />
+          <Property Name="ToMonth" Type="Int32" />
+          <Property Name="ToYear" Type="Int32" />
+          <Property Name="Designation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TeamSize" Type="Int32" Nullable="false" />
+          <Property Name="JobProfile" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NoticePeriod" Type="Int32" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="LoginProfile" Relationship="Self.FK_EmployerHistory_LoginProfile" FromRole="EmployerHistory" ToRole="LoginProfile" />
+        </EntityType>
+        <EntityType Name="LoginProfile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CertificateDetails" Relationship="Self.FK_CertificateDetails_LoginProfile" FromRole="LoginProfile" ToRole="CertificateDetails" />
+          <NavigationProperty Name="EducationDetails" Relationship="Self.FK_EducationDetails_LoginProfile" FromRole="LoginProfile" ToRole="EducationDetails" />
+          <NavigationProperty Name="EmployerHistories" Relationship="Self.FK_EmployerHistory_LoginProfile" FromRole="LoginProfile" ToRole="EmployerHistory" />
+          <NavigationProperty Name="TechnicalSkills" Relationship="Self.FK_ProfileSkills_LoginProfile" FromRole="LoginProfile" ToRole="TechnicalSkills" />
+          <NavigationProperty Name="ProjectDetails" Relationship="Self.FK_ProjectDetails_LoginProfile" FromRole="LoginProfile" ToRole="ProjectDetails" />
+          <NavigationProperty Name="SummarySkills" Relationship="Self.FK_SummarySkills_LoginProfile" FromRole="LoginProfile" ToRole="SummarySkills" />
+          <NavigationProperty Name="UserProfiles" Relationship="Self.FK_UserProfile_LoginProfile" FromRole="LoginProfile" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="MasterDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayText" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="MasterType" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProjectDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginID" Type="Int32" Nullable="false" />
+          <Property Name="Client" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProjectTitle" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FromMonth" Type="Int32" Nullable="false" />
+          <Property Name="FromYear" Type="Int32" Nullable="false" />
+          <Property Name="ToMonth" Type="Int32" />
+          <Property Name="ToYear" Type="Int32" />
+          <Property Name="IsCurrent" Type="Boolean" Nullable="false" />
+          <Property Name="ProjectLocation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsOnsite" Type="Boolean" Nullable="false" />
+          <Property Name="EmploymentType" Type="Int32" Nullable="false" />
+          <Property Name="ProjectDetails" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="Int32" Nullable="false" />
+          <Property Name="RoleDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TeamSize" Type="Int32" Nullable="false" />
+          <Property Name="SkillsUsed" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="LoginProfile" Relationship="Self.FK_ProjectDetails_LoginProfile" FromRole="ProjectDetails" ToRole="LoginProfile" />
+        </EntityType>
+        <EntityType Name="SummarySkill">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginID" Type="Int32" Nullable="false" />
+          <Property Name="DisplayText" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="LoginProfile" Relationship="Self.FK_SummarySkills_LoginProfile" FromRole="SummarySkills" ToRole="LoginProfile" />
+        </EntityType>
+        <EntityType Name="TechnicalSkill">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Version" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastUsed" Type="Int32" Nullable="false" />
+          <Property Name="ExperienceYear" Type="Int32" Nullable="false" />
+          <Property Name="ExperienceMonth" Type="Int32" Nullable="false" />
+          <Property Name="ProfileID" Type="Int32" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="LoginProfile" Relationship="Self.FK_ProfileSkills_LoginProfile" FromRole="TechnicalSkills" ToRole="LoginProfile" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginID" Type="Int32" Nullable="false" />
+          <Property Name="Objective" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contact" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address2" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="528" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="State" Type="Int32" Nullable="false" />
+          <Property Name="Country" Type="Int32" Nullable="false" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="LoginProfile" Relationship="Self.FK_UserProfile_LoginProfile" FromRole="UserProfile" ToRole="LoginProfile" />
+        </EntityType>
+        <Association Name="FK_CertificateDetails_LoginProfile">
+          <End Role="LoginProfile" Type="Self.LoginProfile" Multiplicity="1" />
+          <End Role="CertificateDetails" Type="Self.CertificateDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CertificateDetails">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EducationDetails_LoginProfile">
+          <End Role="LoginProfile" Type="Self.LoginProfile" Multiplicity="1" />
+          <End Role="EducationDetails" Type="Self.EducationDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EducationDetails">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployerHistory_LoginProfile">
+          <End Role="LoginProfile" Type="Self.LoginProfile" Multiplicity="1" />
+          <End Role="EmployerHistory" Type="Self.EmployerHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployerHistory">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfileSkills_LoginProfile">
+          <End Role="LoginProfile" Type="Self.LoginProfile" Multiplicity="1" />
+          <End Role="TechnicalSkills" Type="Self.TechnicalSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TechnicalSkills">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectDetails_LoginProfile">
+          <End Role="LoginProfile" Type="Self.LoginProfile" Multiplicity="1" />
+          <End Role="ProjectDetails" Type="Self.ProjectDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProjectDetails">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SummarySkills_LoginProfile">
+          <End Role="LoginProfile" Type="Self.LoginProfile" Multiplicity="1" />
+          <End Role="SummarySkills" Type="Self.SummarySkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SummarySkills">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_LoginProfile">
+          <End Role="LoginProfile" Type="Self.LoginProfile" Multiplicity="1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="LoginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ResumeCreatorEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CertificateDetails" EntityType="Self.CertificateDetail" />
+          <EntitySet Name="EducationDetails" EntityType="Self.EducationDetail" />
+          <EntitySet Name="EmployerHistories" EntityType="Self.EmployerHistory" />
+          <EntitySet Name="LoginProfiles" EntityType="Self.LoginProfile" />
+          <EntitySet Name="MasterDetails" EntityType="Self.MasterDetail" />
+          <EntitySet Name="ProjectDetails" EntityType="Self.ProjectDetail" />
+          <EntitySet Name="SummarySkills" EntityType="Self.SummarySkill" />
+          <EntitySet Name="TechnicalSkills" EntityType="Self.TechnicalSkill" />
+          <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
+          <AssociationSet Name="FK_CertificateDetails_LoginProfile" Association="Self.FK_CertificateDetails_LoginProfile">
+            <End Role="LoginProfile" EntitySet="LoginProfiles" />
+            <End Role="CertificateDetails" EntitySet="CertificateDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EducationDetails_LoginProfile" Association="Self.FK_EducationDetails_LoginProfile">
+            <End Role="LoginProfile" EntitySet="LoginProfiles" />
+            <End Role="EducationDetails" EntitySet="EducationDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployerHistory_LoginProfile" Association="Self.FK_EmployerHistory_LoginProfile">
+            <End Role="LoginProfile" EntitySet="LoginProfiles" />
+            <End Role="EmployerHistory" EntitySet="EmployerHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfileSkills_LoginProfile" Association="Self.FK_ProfileSkills_LoginProfile">
+            <End Role="LoginProfile" EntitySet="LoginProfiles" />
+            <End Role="TechnicalSkills" EntitySet="TechnicalSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectDetails_LoginProfile" Association="Self.FK_ProjectDetails_LoginProfile">
+            <End Role="LoginProfile" EntitySet="LoginProfiles" />
+            <End Role="ProjectDetails" EntitySet="ProjectDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SummarySkills_LoginProfile" Association="Self.FK_SummarySkills_LoginProfile">
+            <End Role="LoginProfile" EntitySet="LoginProfiles" />
+            <End Role="SummarySkills" EntitySet="SummarySkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_LoginProfile" Association="Self.FK_UserProfile_LoginProfile">
+            <End Role="LoginProfile" EntitySet="LoginProfiles" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ResumeCreatorModelStoreContainer" CdmEntityContainer="ResumeCreatorEntities">
+          <EntitySetMapping Name="CertificateDetails">
+            <EntityTypeMapping TypeName="ResumeCreatorModel.CertificateDetail">
+              <MappingFragment StoreEntitySet="CertificateDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Institute" ColumnName="Institute" />
+                <ScalarProperty Name="FromYear" ColumnName="FromYear" />
+                <ScalarProperty Name="ToYear" ColumnName="ToYear" />
+                <ScalarProperty Name="HasNoExpiry" ColumnName="HasNoExpiry" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EducationDetails">
+            <EntityTypeMapping TypeName="ResumeCreatorModel.EducationDetail">
+              <MappingFragment StoreEntitySet="EducationDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Specialization" ColumnName="Specialization" />
+                <ScalarProperty Name="University" ColumnName="University" />
+                <ScalarProperty Name="FromMonth" ColumnName="FromMonth" />
+                <ScalarProperty Name="FromYear" ColumnName="FromYear" />
+                <ScalarProperty Name="ToMonth" ColumnName="ToMonth" />
+                <ScalarProperty Name="ToYear" ColumnName="ToYear" />
+                <ScalarProperty Name="IsCurrent" ColumnName="IsCurrent" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployerHistories">
+            <EntityTypeMapping TypeName="ResumeCreatorModel.EmployerHistory">
+              <MappingFragment StoreEntitySet="EmployerHistory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="EmployerName" ColumnName="EmployerName" />
+                <ScalarProperty Name="IsCurrent" ColumnName="IsCurrent" />
+                <ScalarProperty Name="FromMonth" ColumnName="FromMonth" />
+                <ScalarProperty Name="FromYear" ColumnName="FromYear" />
+                <ScalarProperty Name="ToMonth" ColumnName="ToMonth" />
+                <ScalarProperty Name="ToYear" ColumnName="ToYear" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="TeamSize" ColumnName="TeamSize" />
+                <ScalarProperty Name="JobProfile" ColumnName="JobProfile" />
+                <ScalarProperty Name="NoticePeriod" ColumnName="NoticePeriod" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginProfiles">
+            <EntityTypeMapping TypeName="ResumeCreatorModel.LoginProfile">
+              <MappingFragment StoreEntitySet="LoginProfile">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasterDetails">
+            <EntityTypeMapping TypeName="ResumeCreatorModel.MasterDetail">
+              <MappingFragment StoreEntitySet="MasterDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DisplayText" ColumnName="DisplayText" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="MasterType" ColumnName="MasterType" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectDetails">
+            <EntityTypeMapping TypeName="ResumeCreatorModel.ProjectDetail">
+              <MappingFragment StoreEntitySet="ProjectDetails">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="Client" ColumnName="Client" />
+                <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+                <ScalarProperty Name="FromMonth" ColumnName="FromMonth" />
+                <ScalarProperty Name="FromYear" ColumnName="FromYear" />
+                <ScalarProperty Name="ToMonth" ColumnName="ToMonth" />
+                <ScalarProperty Name="ToYear" ColumnName="ToYear" />
+                <ScalarProperty Name="IsCurrent" ColumnName="IsCurrent" />
+                <ScalarProperty Name="ProjectLocation" ColumnName="ProjectLocation" />
+                <ScalarProperty Name="IsOnsite" ColumnName="IsOnsite" />
+                <ScalarProperty Name="EmploymentType" ColumnName="EmploymentType" />
+                <ScalarProperty Name="ProjectDetails" ColumnName="ProjectDetails" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+                <ScalarProperty Name="TeamSize" ColumnName="TeamSize" />
+                <ScalarProperty Name="SkillsUsed" ColumnName="SkillsUsed" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SummarySkills">
+            <EntityTypeMapping TypeName="ResumeCreatorModel.SummarySkill">
+              <MappingFragment StoreEntitySet="SummarySkills">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="DisplayText" ColumnName="DisplayText" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TechnicalSkills">
+            <EntityTypeMapping TypeName="ResumeCreatorModel.TechnicalSkill">
+              <MappingFragment StoreEntitySet="TechnicalSkills">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="LastUsed" ColumnName="LastUsed" />
+                <ScalarProperty Name="ExperienceYear" ColumnName="ExperienceYear" />
+                <ScalarProperty Name="ExperienceMonth" ColumnName="ExperienceMonth" />
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="ResumeCreatorModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="Objective" ColumnName="Objective" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

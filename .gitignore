@@ -1,0 +1,6 @@
+
+packages
+*.dll
+.vs
+resume-creator-api/obj
+resume-creator-api/bin

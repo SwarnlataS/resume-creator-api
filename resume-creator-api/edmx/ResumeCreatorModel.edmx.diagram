@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cc123a923a3749e4967ed91e7213ee6b" Name="Diagram1">
+        <EntityTypeShape EntityType="ResumeCreatorModel.CertificateDetail" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumeCreatorModel.EducationDetail" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumeCreatorModel.EmployerHistory" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumeCreatorModel.LoginProfile" Width="1.5" PointX="0.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumeCreatorModel.MasterDetail" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumeCreatorModel.ProjectDetail" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumeCreatorModel.SummarySkill" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumeCreatorModel.TechnicalSkill" Width="1.5" PointX="3" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResumeCreatorModel.UserProfile" Width="1.5" PointX="3" PointY="27.5" IsExpanded="true" />
+        <AssociationConnector Association="ResumeCreatorModel.FK_CertificateDetails_LoginProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumeCreatorModel.FK_EducationDetails_LoginProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumeCreatorModel.FK_EmployerHistory_LoginProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumeCreatorModel.FK_ProfileSkills_LoginProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumeCreatorModel.FK_ProjectDetails_LoginProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumeCreatorModel.FK_SummarySkills_LoginProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="ResumeCreatorModel.FK_UserProfile_LoginProfile" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
